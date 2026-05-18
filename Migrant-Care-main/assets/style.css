@@ -1,0 +1,661 @@
+/* /migrantcare/assets/style.css */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+:root {
+    --primary-color: #007bff;
+    --primary-dark: #0056b3;
+    --text-dark: #1a253c;
+    --text-light: #6c757d;
+    --bg-light: #f4f7fa;
+    --bg-input: #f0f4f7;
+    --white: #ffffff;
+    --border-color: #ddd;
+    --danger: #dc3545;
+    --warning: #ffc107;
+    --success: #28a745;
+}
+
+body, html {
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    font-family: 'Inter', sans-serif;
+    background-color: var(--bg-light);
+    color: var(--text-dark);
+}
+
+.auth-container, .container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.bg-image-login { background: linear-gradient(135deg, #e0f7fa 0%, #b2ebf2 100%); }
+.bg-image-default { background: linear-gradient(to top, #f3e7e9 0%, #e3eeff 100%); }
+
+.auth-card {
+    background-color: rgba(255, 255, 255, 0.95);
+    padding: 40px 30px;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 420px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.dashboard-container {
+    padding: 20px;
+    max-width: 900px;
+    margin: auto;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.title {
+    font-size: 28px;
+    font-weight: 700;
+    margin-bottom: 10px;
+    text-align: center;
+}
+.subtitle {
+    font-size: 18px;
+    font-weight: 500;
+    color: var(--text-light);
+    margin-bottom: 20px;
+    margin-top: 0;
+    text-align: center;
+}
+.label {
+    font-size: 16px;
+    font-weight: 600;
+    margin-top: 10px;
+    margin-bottom: 8px;
+    width: 100%;
+    text-align: left;
+}
+
+.form { width: 100%; display: flex; flex-direction: column; align-items: center; gap: 5px; }
+.input-group { position: relative; width: 100%; margin-bottom: 15px; }
+
+.input, .textarea, select.input {
+    width: 100%;
+    background-color: var(--bg-input);
+    border-radius: 8px;
+    padding: 0 15px;
+    font-size: 16px;
+    border: 1px solid var(--border-color);
+    box-sizing: border-box;
+    height: 50px;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+.textarea { height: auto; min-height: 80px; padding: 15px; font-family: 'Inter', sans-serif;}
+.input:focus, .textarea:focus, select.input:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.2);
+    outline: none;
+}
+
+.button, .language-button {
+    width: 100%;
+    height: 50px;
+    background-image: linear-gradient(145deg, var(--primary-color), var(--primary-dark));
+    border-radius: 8px;
+    margin-top: 10px;
+    color: var(--white);
+    font-size: 18px;
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+.button:hover, .language-button:hover { transform: translateY(-2px); box-shadow: 0 4px 8px rgba(0,0,0,0.1); }
+
+.language-button { background-image: none; background-color: var(--white); color: var(--text-dark); border: 1px solid var(--border-color); }
+.link-button { background: none; border: none; color: var(--primary-color); margin-top: 20px; font-size: 16px; cursor: pointer; font-weight: 500; text-decoration: none; }
+.error-text { color: var(--danger); margin-bottom: 10px; text-align: center; }
+
+.role-container { display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; }
+.role-card {
+    background-color: var(--white);
+    padding: 30px 20px;
+    border-radius: 16px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    width: 200px;
+    text-align: center;
+    cursor: pointer;
+    border: 2px solid transparent;
+    transition: border-color 0.2s, transform 0.2s;
+}
+.role-card:hover { border-color: var(--primary-color); transform: translateY(-5px); }
+.role-icon { font-size: 40px; }
+.role-title { font-size: 18px; font-weight: 600; margin-top: 10px; }
+.role-description { font-size: 14px; color: var(--text-light); margin-top: 5px; }
+
+.header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; flex-wrap: wrap; }
+.header-title { font-size: 22px; font-weight: 600; margin: 0; }
+
+.card {
+    background-color: var(--white);
+    border-radius: 16px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.07);
+    border: 1px solid #e5e7eb;
+}
+
+.qr-code-container { text-align: center; padding: 20px; background-color: #f8f9fa; border-radius: 12px; }
+.qr-code-text { font-family: monospace; font-weight: 600; margin-top: 10px; }
+
+.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; }
+.grid-button {
+    background-color: var(--white); border-radius: 16px; padding: 20px; display: flex; flex-direction: column;
+    align-items: center; justify-content: center; font-size: 16px; font-weight: 600;
+    border: 1px solid #e0e0e0; box-shadow: 0 4px 6px rgba(0,0,0,0.04); cursor: pointer;
+    min-height: 120px; text-align: center; text-decoration: none; color: var(--text-dark);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+.grid-button:hover { transform: translateY(-5px); box-shadow: 0 8px 12px rgba(0,0,0,0.1); }
+.grid-icon { font-size: 28px; margin-bottom: 10px; }
+
+.profile-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; width: 100%; }
+.location-input-group { display: flex; align-items: center; gap: 10px; width: 100%;}
+.location-input-group .input { flex: 1; }
+.location-button { height: 50px; padding: 0 15px; border-radius: 8px; border: none; cursor: pointer; background-color: var(--text-light); color: var(--white);}
+
+.patient-info-card { background-color: #e9f7ef; padding: 20px; border-radius: 12px; margin-bottom: 20px; }
+.patient-info-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 10px; }
+.patient-info-grid div { background-color: var(--white); padding: 10px; border-radius: 8px; }
+
+.record-item { padding: 15px 0; border-bottom: 1px solid #eee; }
+.record-item:last-child { border-bottom: none; }
+.record-date { font-size: 14px; color: var(--text-light); margin-bottom: 5px; }
+.bold { font-weight: 600; }
+
+/* ... (all existing CSS) ... */
+
+/* For success/error messages */
+.alert-success {
+    padding: 15px;
+    margin-bottom: 20px;
+    border: 1px solid transparent;
+    border-radius: 8px;
+    color: #155724;
+    background-color: #d4edda;
+    border-color: #c3e6cb;
+}
+
+/* To style the 'Linked' ESI card on the dashboard */
+.grid-button-success {
+    background-color: #e9f7ef;
+    color: #28a745;
+    cursor: default;
+}
+.grid-button-success:hover {
+    transform: none;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.04);
+}
+.grid-button small {
+    font-size: 12px;
+    color: var(--text-light);
+    margin-top: 5px;
+}
+/* ... (all existing CSS) ... */
+
+/* For Status Tags (ESI, etc.) */
+.tag-success, .tag-danger {
+    padding: 4px 10px;
+    border-radius: 12px;
+    font-size: 12px;
+    font-weight: 600;
+    display: inline-block;
+}
+.tag-success {
+    background-color: #d4edda;
+    color: #155724;
+}
+.tag-danger {
+    background-color: #f8d7da;
+    color: #721c24;
+}
+
+/* For Modal Windows */
+.modal-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.5);
+    display: none; /* Hidden by default */
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+.modal-content {
+    background-color: white;
+    padding: 30px;
+    border-radius: 16px;
+    width: 90%;
+    max-width: 500px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+/* For success/error messages */
+.alert-success {
+    padding: 15px;
+    margin-bottom: 20px;
+    border: 1px solid transparent;
+    border-radius: 8px;
+    color: #155724;
+    background-color: #d4edda;
+    border-color: #c3e6cb;
+}
+/* ... (all existing CSS) ... */
+
+/* Public Health Dashboard Specific Styles */
+.ph-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+}
+.ph-card {
+    grid-column: span 1;
+}
+
+/* Hotspot List */
+.hotspot-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+.hotspot-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 10px;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+}
+.hotspot-icon {
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+.hotspot-risk {
+    margin-left: auto;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+/* Bar Chart */
+.bar-chart-container {
+    width: 100%;
+    height: 200px;
+    padding: 20px 20px 20px 0;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-end;
+    border-top: 1px solid var(--border-color);
+    margin-top: 20px;
+}
+.y-axis {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-right: 10px;
+    font-size: 12px;
+    color: var(--text-light);
+}
+.bar-wrapper {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+    justify-content: flex-end;
+    position: relative;
+}
+.bar {
+    width: 50%;
+    background-color: var(--primary-color);
+    border-radius: 4px 4px 0 0;
+    transition: background-color 0.2s;
+    position: relative;
+    display: flex;
+    justify-content: center;
+}
+.bar-label {
+    margin-top: 5px;
+    font-size: 12px;
+    color: var(--text-light);
+}
+.bar-value {
+    position: absolute;
+    top: -20px;
+    font-size: 12px;
+    font-weight: bold;
+    opacity: 0;
+    transition: opacity 0.2s;
+}
+.bar-wrapper:hover .bar {
+    background-color: var(--primary-dark);
+}
+.bar-wrapper:hover .bar-value {
+    opacity: 1;
+}
+
+/* Anomaly Alerts */
+.anomaly-item {
+    padding: 15px;
+    border-left-width: 5px;
+    border-left-style: solid;
+    margin-bottom: 15px;
+    background-color: #f8f9fa;
+    border-radius: 0 8px 8px 0;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+.anomaly-item:last-child {
+    margin-bottom: 0;
+}
+.anomaly-icon {
+    font-size: 24px;
+}
+.timestamp {
+    font-size: 12px;
+    color: var(--text-light);
+    margin-top: 4px;
+    margin-bottom: 0;
+}
+/* ... (all your existing CSS) ... */
+
+/* Footer Language Switcher */
+.site-footer {
+    padding: 20px;
+    margin-top: 40px;
+    text-align: center;
+    border-top: 1px solid var(--border-color);
+}
+.language-switcher-form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    max-width: 300px;
+    margin: auto;
+}
+.language-switcher-form label {
+    font-weight: 600;
+    margin: 0;
+}
+.language-switcher-form select.input {
+    height: 40px;
+    flex: 1;
+}
+/* ... (all existing CSS) ... */
+
+/* ## UPDATED: AI Chatbot UI Styles ## */
+.chat-wrapper {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+.chat-container {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    background-color: var(--white);
+    border-radius: 16px;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.1);
+    overflow: hidden;
+    max-width: 800px;
+    width: 100%;
+    margin: 0 auto;
+}
+.chat-header {
+    background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+    color: var(--white);
+    padding: 15px 20px;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+.chat-header h3 {
+    margin: 0;
+    font-size: 1.2em;
+}
+.chat-header p {
+    margin: 0;
+    font-size: 0.8em;
+    opacity: 0.9;
+}
+.chat-messages {
+    flex: 1;
+    padding: 20px;
+    overflow-y: auto;
+    background-color: #f7f9fc;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+/* Custom Scrollbar */
+.chat-messages::-webkit-scrollbar {
+    width: 6px;
+}
+.chat-messages::-webkit-scrollbar-thumb {
+    background-color: #ccc;
+    border-radius: 3px;
+}
+.message-row {
+    display: flex;
+    align-items: flex-end;
+    gap: 10px;
+    max-width: 85%;
+}
+.message-row.user {
+    align-self: flex-end;
+    flex-direction: row-reverse;
+}
+.message-row.ai {
+    align-self: flex-start;
+}
+.avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: var(--primary-color);
+    color: var(--white);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    flex-shrink: 0;
+}
+.message-row.ai .avatar {
+    background-color: #e9ecef;
+    color: var(--text-dark);
+}
+.user-message, .ai-message {
+    padding: 12px 18px;
+    border-radius: 20px;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    line-height: 1.5;
+}
+.user-message {
+    background-color: var(--primary-color);
+    color: white;
+    border-bottom-right-radius: 5px;
+}
+.ai-message {
+    background-color: #e9ecef;
+    color: #333;
+    border-bottom-left-radius: 5px;
+}
+.chat-input-container {
+    display: flex;
+    padding: 15px;
+    border-top: 1px solid var(--border-color);
+    background-color: var(--white);
+}
+.chat-input-container .input {
+    flex-grow: 1;
+    border-radius: 25px;
+    padding-left: 20px;
+}
+.chat-input-container #sendChatBtn {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-top: 0;
+    margin-left: 10px;
+    flex-shrink: 0;
+    font-size: 24px;
+    padding: 0;
+}
+/* Typing Indicator Animation */
+.typing-indicator span {
+    height: 8px;
+    width: 8px;
+    background-color: #999;
+    border-radius: 50%;
+    display: inline-block;
+    animation: bounce 1.3s infinite;
+}
+.typing-indicator span:nth-of-type(2) {
+    animation-delay: 0.15s;
+}
+.typing-indicator span:nth-of-type(3) {
+    animation-delay: 0.3s;
+}
+@keyframes bounce {
+    0%, 60%, 100% { transform: translateY(0); }
+    30% { transform: translateY(-6px); }
+}
+/* AI Chatbot UI Styles */
+.chat-wrapper {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+.chat-container {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    background-color: var(--white);
+    border-radius: 16px;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.1);
+    overflow: hidden;
+    max-width: 800px;
+    width: 100%;
+    margin: 0 auto;
+}
+.chat-header {
+    background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+    color: var(--white);
+    padding: 15px 20px;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+.chat-header h3 {
+    margin: 0;
+    font-size: 1.2em;
+}
+.chat-header p {
+    margin: 0;
+    font-size: 0.8em;
+    opacity: 0.9;
+}
+.chat-messages {
+    flex: 1;
+    padding: 20px;
+    overflow-y: auto;
+    background-color: #f7f9fc;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+.message-row {
+    display: flex;
+    align-items: flex-end;
+    gap: 10px;
+    max-width: 85%;
+}
+.message-row.user {
+    align-self: flex-end;
+    flex-direction: row-reverse;
+}
+.message-row.ai {
+    align-self: flex-start;
+}
+.avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: var(--primary-color);
+    color: var(--white);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    flex-shrink: 0;
+}
+.message-row.ai .avatar {
+    background-color: #e9ecef;
+    color: var(--text-dark);
+}
+.user-message, .ai-message {
+    padding: 12px 18px;
+    border-radius: 20px;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    line-height: 1.5;
+}
+.user-message {
+    background-color: var(--primary-color);
+    color: white;
+    border-bottom-right-radius: 5px;
+}
+.ai-message {
+    background-color: #e9ecef;
+    color: #333;
+    border-bottom-left-radius: 5px;
+}
+.chat-input-container {
+    display: flex;
+    padding: 15px;
+    border-top: 1px solid var(--border-color);
+    background-color: var(--white);
+}
+.chat-input-container .input {
+    flex-grow: 1;
+    border-radius: 25px;
+    padding-left: 20px;
+}
+.chat-input-container #sendChatBtn {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-top: 0;
+    margin-left: 10px;
+    flex-shrink: 0;
+    font-size: 24px;
+    padding: 0;
+}
