@@ -1,3 +1,9 @@
+#Team Members
+Mohammed Usman S
+Nagasuri Meerash
+Aravind Kumar
+
+
 # Migrant Care
 
 Migrant Care is a comprehensive web-based platform designed to provide healthcare access and support for migrant workers. The platform includes a dual-portal system for both medical professionals (Doctors) and patients (Migrant Workers), integrating identity verification, health record management, and AI-driven health tools.
